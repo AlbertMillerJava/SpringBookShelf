@@ -20,7 +20,7 @@ public class OrderFacade {
         return orderStorage.changeOrder(order);
     }
 
-    public long addOrder(Order order) {
+    public Order addOrder(Order order) {
         return orderStorage.addOrder(order);
     }
 

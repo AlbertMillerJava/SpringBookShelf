@@ -9,7 +9,7 @@ public interface OrderStorage {
 
     long changeOrder (Order order);
 
-    long addOrder(Order order);
+    Order addOrder(Order order);
 
     List<Order> getAllOrders();
 }

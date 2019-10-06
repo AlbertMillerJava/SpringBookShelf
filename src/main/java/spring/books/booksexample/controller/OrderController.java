@@ -1,5 +1,6 @@
 package spring.books.booksexample.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class OrderController {
     }
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public long addOrder(@RequestBody OrderDto orderDto) {
+    public Order addOrder(@RequestBody OrderDto orderDto) {
         Order order =orderDto.createOrder();
         return orderFacade.addOrder(order);
     }

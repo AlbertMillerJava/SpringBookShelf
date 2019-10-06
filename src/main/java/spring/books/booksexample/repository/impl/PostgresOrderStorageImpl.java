@@ -109,12 +109,13 @@ public class PostgresOrderStorageImpl implements OrderStorage {
     }
 
     @Override
-    public long addOrder(Order order) {
+    public Order addOrder(Order order) {
         final String sqlAddOrder = "insert into orders(order_id ,order_date ,customer_id)" +
                 "Values (nextval('order_sequence'),current_date , ?) returning order_id;";
         final String sqlListOfItems = "insert into order_items (order_item_id,order_id,book_id,amount,is_active) " +
                 "values(nextval('items_sequence'),?,?,?,true);";
-
+        long selectOrderId = 0;
+        Order order1 = new Order();
         long orderId = 0;
         Connection connection = DatabaseConnection.initializeDataBaseConnection();
         PreparedStatement preparedStatement = null;
@@ -137,6 +138,7 @@ public class PostgresOrderStorageImpl implements OrderStorage {
                 preparedStatementAddItems.setInt(3, orderItem.getAmount());
                 preparedStatementAddItems.executeUpdate();
             }
+            order1 = getOrder((int)orderId);
 
         } catch (SQLException e) {
             throw new RuntimeException("Failed in update sql query order section");
@@ -144,7 +146,7 @@ public class PostgresOrderStorageImpl implements OrderStorage {
             DatabaseConnection.closeDatabaseResources(connection, preparedStatement);
             DatabaseConnection.closeDatabaseResources(connection, preparedStatementAddItems);
         }
-        return orderId;
+        return order1;
     }
 
     @Override
