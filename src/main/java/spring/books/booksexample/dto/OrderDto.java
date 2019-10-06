@@ -7,7 +7,6 @@ import spring.books.booksexample.domain.Customer;
 import spring.books.booksexample.domain.Order;
 import spring.books.booksexample.domain.OrderItem;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 @Data

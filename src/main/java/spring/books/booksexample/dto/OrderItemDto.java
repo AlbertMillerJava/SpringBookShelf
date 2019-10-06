@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import spring.books.booksexample.domain.Book;
-import spring.books.booksexample.domain.Order;
 import spring.books.booksexample.domain.OrderItem;
 @Data
 @AllArgsConstructor

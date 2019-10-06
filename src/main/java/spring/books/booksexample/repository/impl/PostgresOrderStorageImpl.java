@@ -1,8 +1,6 @@
 package spring.books.booksexample.repository.impl;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import spring.books.booksexample.database.DatabaseConnection;
 import spring.books.booksexample.domain.Book;
 import spring.books.booksexample.domain.Customer;
@@ -178,11 +176,3 @@ public class PostgresOrderStorageImpl implements OrderStorage {
         return orders;
     }
 }
-//"select orders.order_id, orders.order_date, customers.name," +
-//        " customers.customer_id, books.title, books.book_id, books.author, books.page_sum," +
-//        " books.year_of_published, books.publishing_house, order_items.amount, order_items.order_item_id " +
-//        "from orders" +
-//        " left outer join customers using (customer_id)" +
-//        " left outer join order_items using (order_id)" +
-//        " left outer join books using (book_id)" +
-//        " where orders.order_id =" + orderId;
